@@ -1,10 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby  :
-
+box = "debian/bookworm64"
 machines = {
-  "master" => {"memory" => "1024", "cpu" => "1", "ip" => "100", "image" => "bento/ubuntu-22.04"},
-  "node01" => {"memory" => "1024", "cpu" => "1", "ip" => "101", "image" => "bento/ubuntu-22.04"},
-  "node02" => {"memory" => "1024", "cpu" => "1", "ip" => "102", "image" => "bento/ubuntu-22.04"}
+  "master" => {"memory" => "1024", "cpu" => "1", "ip" => "100", "image" => box},
+  "node01" => {"memory" => "1024", "cpu" => "1", "ip" => "101", "image" => box},
+  "node02" => {"memory" => "1024", "cpu" => "1", "ip" => "102", "image" => box}
+  "node03" => {"memory" => "1024", "cpu" => "1", "ip" => "103", "image" => box}
 }
 
 Vagrant.configure("2") do |config|
