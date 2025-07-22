@@ -4,8 +4,8 @@ box = "debian/bookworm64"
 machines = {
   "master" => {"memory" => "1024", "cpu" => "1", "ip" => "100", "image" => box},
   "node01" => {"memory" => "1024", "cpu" => "1", "ip" => "101", "image" => box},
-  "node02" => {"memory" => "1024", "cpu" => "1", "ip" => "102", "image" => box}
-  "node03" => {"memory" => "1024", "cpu" => "1", "ip" => "103", "image" => box}
+  "node02" => {"memory" => "1024", "cpu" => "1", "ip" => "102", "image" => box},
+  "node03" => {"memory" => "1024", "cpu" => "1", "ip" => "103", "image" => box},
 }
 
 Vagrant.configure("2") do |config|
@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
     config.vm.define "#{name}" do |machine|
       machine.vm.box = "#{conf["image"]}"
       machine.vm.hostname = "#{name}"
-      machine.vm.network "private_network", ip: "10.10.10.#{conf["ip"]}"
+      machine.vm.network "private_network", ip: "192.168.56.#{conf["ip"]}"
       machine.vm.provider "virtualbox" do |vb|
         vb.name = "#{name}"
         vb.memory = conf["memory"]
